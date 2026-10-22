@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*outline: auto;*/
+}
+
+body{
+    font-family: monospace;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;   
+    height: 100vh;
+    color: darkolivegreen;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    font-size: clamp(1rem, 4vw, 2rem);
+    border-bottom: 4px chocolate solid;
+}
+
+main{
+    background-color:brown;
+    flex-grow: 1;
+}
+
+footer{
+    width: 100vw;
+    text-align: center;
+    padding: 1rem;
+    font-size: 16px;  
+    border-top: 4px chocolate solid;
+}
+
+footer a{
+    text-decoration: none;
+    color: red;
+}
