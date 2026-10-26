@@ -24,9 +24,79 @@ header{
 }
 
 main{
-    background-color:brown;
     flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#calc-ctn {
+    background: whitesmoke;
+    width: 230px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 8px;
+    /*outline: red auto;*/
+    box-shadow: 2px 5px 65px -10px rgba(0, 0, 0, 0.72);
+    
+}
+#display {
+    background-color: papayawhip;
+    height: 25%;
+    display: flex;
+    align-items:center;
+    justify-content: right;
+    padding: 8px;
+    color: brown;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    margin: 0.3rem;
+    border: 1px solid ;
+    
+    
+}
+
+#btns-ctn{
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.4rem;
+}
+
+.btn-row{
+    display: flex;
+    justify-content: space-between;
+}
+#l-row{
+    justify-content: right;
+    gap: 4.5rem;
+}
+
+button{
+    width: 44px;
+    height: 44px;
+    text-align: center;
+    background-color: lightblue;
+    color: brown;
+    border:1px solid brown;
+    border-radius: 64px; 
+    font-size: 1rem;
+    box-shadow: 1px 10px 40px -4px brown;
+    cursor:pointer;
+    
+}
+button:active {
+  background-color:brown;
+  color: ghostwhite;
+  transform: translatey(2px);
+}
+
+
+
 
 footer{
     width: 100vw;
