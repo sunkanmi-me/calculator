@@ -92,7 +92,7 @@ button{
 button:active {
   background-color:brown;
   color: ghostwhite;
-  transform: translatey(2px);
+  transform: translatey(6px);
 }
 
 
