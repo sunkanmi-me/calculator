@@ -72,10 +72,6 @@ main{
     display: flex;
     justify-content: space-between;
 }
-#l-row{
-    justify-content: right;
-    gap: 4.5rem;
-}
 
 button{
     width: 44px;
@@ -93,7 +89,19 @@ button{
 button:active {
   background-color:brown;
   color: ghostwhite;
-  transform: translatey(6px);
+  transform: translatey(4px);
+}
+
+.operator{
+    background-color: chocolate;
+    color: snow;
+}
+
+.equals {
+    background-color: wheat;
+    color:  darkolivegreen;
+    border: none;
+    width: 48px;
 }
 
 
