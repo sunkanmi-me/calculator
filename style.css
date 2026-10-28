@@ -32,8 +32,6 @@ main{
 
 #calc-ctn {
     background: whitesmoke;
-    width: 230px;
-    height: 400px;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -41,11 +39,11 @@ main{
     border-radius: 8px;
     /*outline: red auto;*/
     box-shadow: 2px 5px 65px -10px rgba(0, 0, 0, 0.72);
-    
+    max-width: 260px;
+    gap: 2rem;
 }
 #display {
     background-color: papayawhip;
-    height: 25%;
     display: flex;
     align-items:center;
     justify-content: right;
@@ -54,23 +52,25 @@ main{
     font-size: 1.5rem;
     border-radius: 8px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
-    margin: 0.3rem;
     border: 1px solid ;
-    
-    
+}
+#content{
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 #btns-ctn{
-    height: 70%;
+    min-height: 70%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0.4rem;
+    gap: 1rem;
+
 }
 
 .btn-row{
     display: flex;
     justify-content: space-between;
+    gap: 0.5rem;
 }
 
 button{
@@ -100,7 +100,7 @@ button:active {
 .equals {
     background-color: wheat;
     color:  darkolivegreen;
-    border: none;
+    
     width: 48px;
 }
 
