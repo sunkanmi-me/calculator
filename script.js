@@ -1,8 +1,9 @@
 const btnsCtn = document.querySelector("#btns-ctn");
 const display = document.querySelector("#content");
 const clearAll = document.querySelector("#clearAll")
+const pointBtn = document.querySelector("#decimal-point");
 
-// console.log(display);
+// console.log(clearAll);
 
 
 let numberA;
@@ -34,10 +35,9 @@ const updateDisplay = function (value) {
 
 function operateAndDisplay() {
   // this function takes no input it calculate and call the display function to display it answer
-  numberA = operate(parseInt(numberA), operator, parseInt(numberB));
-  numberA = numberA.toString();
+  numberA = operate(parseFloat(numberA), operator, parseFloat(numberB));
   console.log(numberA)
-  updateDisplay(numberA);
+  updateDisplay(Math.round(numberA*100)/100);
   
   //refresh the var for next round
   operator = undefined;
@@ -57,7 +57,8 @@ btnsCtn.addEventListener("click", (e) => {
     alert("Sorry this feature is not yet implemented");
     return
   }
-  
+
+  //record numberA first  and display what was recorded
   if (className === "digit" && !operator) {
     
     if (numberA != undefined && recordInput) {
@@ -68,11 +69,13 @@ btnsCtn.addEventListener("click", (e) => {
       recordInput = true;
     }
     updateDisplay(numberA);
+    //disable pointBtn if "." is there already in numberA
+    if (numberA.includes(".")){return pointBtn.disabled = true}
     return
   }
-
+  
   if (className === "operator") {
-
+    
     if (operator) {
       operateAndDisplay();
       alert("working");
@@ -83,6 +86,9 @@ btnsCtn.addEventListener("click", (e) => {
       operator = valueClicked;
       updateDisplay(numberA+valueClicked)
     }
+
+    // reactivate the point button here for number b input
+    pointBtn.disabled = false;
     return
   }
 
@@ -102,6 +108,9 @@ btnsCtn.addEventListener("click", (e) => {
       operateAndDisplay();
     }
   }
+
+  //disable the the decimal  point button if it was alrealdy there
+  
 })
 
 
