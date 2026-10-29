@@ -44,6 +44,7 @@ main{
 }
 #display {
     background-color: papayawhip;
+    min-height: 90px;
     display: flex;
     align-items:center;
     justify-content: right;
