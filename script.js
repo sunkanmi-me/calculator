@@ -2,8 +2,9 @@ const btnsCtn = document.querySelector("#btns-ctn");
 const display = document.querySelector("#content");
 const clearAll = document.querySelector("#clearAll")
 const pointBtn = document.querySelector("#decimal-point");
+const clear = document.querySelector("#clear")
 
-// console.log(clearAll);
+console.log(clear);
 
 
 let numberA;
@@ -79,7 +80,6 @@ btnsCtn.addEventListener("click", (e) => {
     
     if (operator) {
       operateAndDisplay();
-      alert("working");
      }
     
     if (numberA && !operator) {
@@ -104,7 +104,6 @@ btnsCtn.addEventListener("click", (e) => {
 
     //disable pointBtn if "." is there already in numberA
     if (numberB.includes(".")){return pointBtn.disabled = true}
-    
     return
   }
 
@@ -127,5 +126,26 @@ clearAll.addEventListener('click', () => {
   numberA = undefined;
   updateDisplay("");
   pointBtn.disabled = false;
+})
+
+clear.addEventListener('click', e => {
+  if (numberB) {
+    //remove the last char in numberB
+    numberB = numberB.slice(0, -1)
+    return updateDisplay(numberA+operator+numberB)
+  }
+  else if (operator) {
+    operator = undefined
+    updateDisplay(numberA)
+    return
+  }
+    
+  else if (numberA) {
+   //trigger a click event on clearAll if number is number this is to catch us from running string method on a int and it tell us numberA now hold the result for calculation we have done not user input
+   if (typeof numberA === "number"){return clearAll.click()}
+    //remove the last char in numberA
+    numberA = numberA.slice(0, -1)
+    return updateDisplay(numberA)
+    }
 })
 
