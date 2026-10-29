@@ -120,4 +120,5 @@ clearAll.addEventListener('click', () => {
   numberB = undefined;
   numberA = undefined;
   updateDisplay("");
+  pointBtn.disabled = false;
 })
