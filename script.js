@@ -53,7 +53,7 @@ btnsCtn.addEventListener("click", (e) => {
   let className = e.target.className;
   let valueClicked = e.target.textContent;
 
-  if (["C", "%"].includes(valueClicked)) {
+  if (["no", "%"].includes(valueClicked)) {
     alert("Sorry this feature is not yet implemented");
     return
   }
@@ -73,7 +73,8 @@ btnsCtn.addEventListener("click", (e) => {
     if (numberA.includes(".")){return pointBtn.disabled = true}
     return
   }
-  
+
+  //record operator 
   if (className === "operator") {
     
     if (operator) {
@@ -92,6 +93,7 @@ btnsCtn.addEventListener("click", (e) => {
     return
   }
 
+  // record numberB and display what was recorded
   if (className === "digit" && operator) {
     if (numberB != undefined) {
       numberB += valueClicked;
@@ -99,6 +101,10 @@ btnsCtn.addEventListener("click", (e) => {
       numberB = valueClicked;
     }
     updateDisplay(numberA + operator + numberB);
+
+    //disable pointBtn if "." is there already in numberA
+    if (numberB.includes(".")){return pointBtn.disabled = true}
+    
     return
   }
 
@@ -122,3 +128,4 @@ clearAll.addEventListener('click', () => {
   updateDisplay("");
   pointBtn.disabled = false;
 })
+
