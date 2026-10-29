@@ -8,6 +8,7 @@ const clearAll = document.querySelector("#clearAll")
 let numberA;
 let numberB;
 let operator;
+let recordInput = true;
 
 
 const operate = (numberA, operator, numberB) => {
@@ -41,7 +42,7 @@ function operateAndDisplay() {
   //refresh the var for next round
   operator = undefined;
   numberB = undefined;
-  numberA = undefined;
+  recordInput = false;
 }
 
 
@@ -59,11 +60,12 @@ btnsCtn.addEventListener("click", (e) => {
   
   if (className === "digit" && !operator) {
     
-    if (numberA != undefined) {
+    if (numberA != undefined && recordInput) {
       numberA += valueClicked;
       
     } else {
       numberA = valueClicked;
+      recordInput = true;
     }
     updateDisplay(numberA);
     return
@@ -71,9 +73,10 @@ btnsCtn.addEventListener("click", (e) => {
 
   if (className === "operator") {
 
-    // if (operator) {
-    //   operateAndDisplay()
-    // }
+    if (operator) {
+      operateAndDisplay();
+      alert("working");
+     }
     
     if (numberA && !operator) {
       // alert("active")
