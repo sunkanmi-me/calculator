@@ -41,6 +41,7 @@ function operateAndDisplay() {
   //refresh the var for next round
   operator = undefined;
   numberB = undefined;
+  numberA = undefined;
 }
 
 
@@ -57,25 +58,29 @@ btnsCtn.addEventListener("click", (e) => {
   }
   
   if (className === "digit" && !operator) {
+    
     if (numberA != undefined) {
       numberA += valueClicked;
+      
     } else {
       numberA = valueClicked;
     }
     updateDisplay(numberA);
+    return
   }
 
   if (className === "operator") {
 
-    if (operator) {
-      operateAndDisplay()
-    }
+    // if (operator) {
+    //   operateAndDisplay()
+    // }
     
     if (numberA && !operator) {
       // alert("active")
       operator = valueClicked;
       updateDisplay(numberA+valueClicked)
     }
+    return
   }
 
   if (className === "digit" && operator) {
@@ -84,7 +89,8 @@ btnsCtn.addEventListener("click", (e) => {
     } else {
       numberB = valueClicked;
     }
-    updateDisplay(numberA+operator+numberB);
+    updateDisplay(numberA + operator + numberB);
+    return
   }
 
   if (className === "equals") {
