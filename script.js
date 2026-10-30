@@ -12,7 +12,6 @@ let numberB;
 let operator;
 let recordInput = true;
 
-
 const operate = (numberA, operator, numberB) => {
   switch (operator) {
     case '+':
@@ -78,7 +77,7 @@ btnsCtn.addEventListener("click", (e) => {
   //record operator 
   if (className === "operator") {
     
-    if (operator) {
+    if (operator && numberB) {
       operateAndDisplay();
      }
     
@@ -95,11 +94,11 @@ btnsCtn.addEventListener("click", (e) => {
 
   // record numberB and display what was recorded
   if (className === "digit" && operator) {
-    if (numberB != undefined) {
+    if (numberB != undefined) {      
       numberB += valueClicked;
     } else {
       numberB = valueClicked;
-    }
+    } 
     updateDisplay(numberA + operator + numberB);
 
     //disable pointBtn if "." is there already in numberA
