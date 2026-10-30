@@ -4,7 +4,7 @@ const clearAll = document.querySelector("#clearAll")
 const pointBtn = document.querySelector("#decimal-point");
 const clear = document.querySelector("#clear")
 
-console.log(clear);
+// console.log(clear);
 
 
 let numberA;
@@ -36,7 +36,7 @@ const updateDisplay = function (value) {
 function operateAndDisplay() {
   // this function takes no input it calculate and call the display function to display it answer
   numberA = operate(parseFloat(numberA), operator, parseFloat(numberB));
-  console.log(numberA)
+  // console.log("result"+numberA)
   updateDisplay(Math.round(numberA*100)/100);
   
   //refresh the var for next round
@@ -52,6 +52,9 @@ btnsCtn.addEventListener("click", (e) => {
   // console.log(e.target.className);
   let className = e.target.className;
   let valueClicked = e.target.textContent;
+  // console.log("valuetrigered: " + valueClicked + e.isTrusted);
+  // alert("trigger" + e.target.textContent);
+  // alert(e.isTrusted);
 
   if (["no", "%"].includes(valueClicked)) {
     alert("Sorry this feature is not yet implemented");
@@ -147,4 +150,41 @@ clear.addEventListener('click', e => {
     return updateDisplay(numberA)
     }
 })
+
+/// adding keyboard events to trigger click event on our  buttons
+const calcKeys = document.querySelectorAll("button")
+const equals = document.querySelector(".equals")
+const multiply = document.getElementById("multiply")
+const divide = document.getElementById("division")
+
+//listen for keystroke 
+window.addEventListener("keydown", e => {
+  // console.log("YOU CLICKED:" + e.key)
+  key = e.key;
+  if (key === "Enter") {
+    e.preventDefault();
+    equals.click()
+    return;
+  }
+  if (key === "Backspace") {
+    clear.click()
+    return;
+  }
+  if (key === "/") {
+    divide.click();
+    return
+  }
+  if (key === "*") {
+    multiply.click();
+    return
+  }
+  
+  calcKeys.forEach(element => {
+    if (element.textContent === key) {
+      // console.log("clicked"+element.textContent + e.key)
+      element.click();
+    }
+  });
+  
+});
 
